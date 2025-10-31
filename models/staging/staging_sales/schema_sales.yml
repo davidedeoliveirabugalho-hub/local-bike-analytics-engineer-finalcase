@@ -23,16 +23,16 @@ models:
         description: "Foreign key linking the item to the corresponding order."
         tests:
           - relationships:
-              name: order_id_foreign_key_in_stg_sales__order_items
+              arguments:
               to: ref('stg_sales__orders')
               field: order_id
-      - name: item_id
+      - name: product_id
         description: "Foreign key linking the item to the corresponding product."
         tests:
           - relationships:
-              name: item_id_foreign_key_in_stg_sales__order_items
-              to: ref('stg_production__products')
-              field: product_id
+              arguments:
+                to: ref('stg_production__products')
+                field: product_id
 
   - name: stg_sales__orders
     description: "This template contains information about orders placed by users, including the status of each order and the store."
@@ -42,18 +42,25 @@ models:
         tests:
             - unique
             - not_null
-      - name: staff_id
+      - name: customer_id
+        description: "Foreign key linking the order to the corresponding customer."
+        tests:
+          - relationships:
+              arguments:
+              to: ref('stg_sales__customers')
+              field: store_id
+      - name: customer_id
         description: "Foreign key linking the order to the corresponding seller."
         tests:
           - relationships:
-              name: staff_id_foreign_key_in_stg_sales__orders
+              arguments:
               to: ref('stg_sales__staffs')
               field: staff_id
       - name: store_id
         description: "Foreign key linking the order to the corresponding store."
         tests:
           - relationships:
-              name: store_id_foreign_key_in_stg_sales__orders
+              arguments:
               to: ref('stg_sales__stores')
               field: store_id
 
@@ -69,7 +76,7 @@ models:
         description: "Foreign key linking the staff to his manager."
         tests:
           - relationships:
-              name: manager_id_foreign_key_in_stg_sales__staffs
+              arguments:
               to: ref('stg_sales__staffs')
               field: staff_id
 
