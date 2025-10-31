@@ -27,20 +27,20 @@ models:
         tests:
             - unique
             - not_null
-      - name: brand_id
+      - name: product_brand_id
         description: "Foreign key linking the product to the corresponding brand."
         tests:
           - relationships:
-              name: brand_id_foreign_key_in_stg_production__products
-              to: ref('stg_production__brands')
-              field: brand_id
-      - name: category_id
+              arguments:
+                to: ref('stg_production__brands')
+                field: brand_id
+      - name: product_category_id
         description: "Foreign key linking the product to the corresponding category."
         tests:
           - relationships:
-              name: category_id_foreign_key_in_stg_production__products
-              to: ref('stg_production__categories')
-              field: category_id
+              arguments:
+                to: ref('stg_production__categories')
+                field: category_id
 
   - name: stg_production__stocks
     description: "This model contains information about each product stocks for each store."
@@ -54,13 +54,13 @@ models:
         description: "Foreign key linking the product store stock to the corresponding store."
         tests:
           - relationships:
-              name: store_id_foreign_key_in_stg_production__stocks
-              to: ref('stg_sales__stores')
-              field: store_id
+              arguments:
+                to: ref('stg_sales__stores')
+                field: store_id
       - name: product_id
         description: "Foreign key linking the product store stock to the corresponding product."
         tests:
           - relationships:
-              name: product_id_foreign_key_in_stg_production__stocks
-              to: ref('stg_production__products')
-              field: product_id
+              arguments:
+                to: ref('stg_production__products')
+                field: product_id
