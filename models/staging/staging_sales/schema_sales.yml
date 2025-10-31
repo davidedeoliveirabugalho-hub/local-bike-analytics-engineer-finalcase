@@ -24,8 +24,8 @@ models:
         tests:
           - relationships:
               arguments:
-              to: ref('stg_sales__orders')
-              field: order_id
+                to: ref('stg_sales__orders')
+                field: order_id
       - name: product_id
         description: "Foreign key linking the item to the corresponding product."
         tests:
@@ -47,22 +47,22 @@ models:
         tests:
           - relationships:
               arguments:
-              to: ref('stg_sales__customers')
-              field: store_id
+                to: ref('stg_sales__customers')
+                field: store_id
       - name: customer_id
         description: "Foreign key linking the order to the corresponding seller."
         tests:
           - relationships:
               arguments:
-              to: ref('stg_sales__staffs')
-              field: staff_id
+                to: ref('stg_sales__staffs')
+                field: staff_id
       - name: store_id
         description: "Foreign key linking the order to the corresponding store."
         tests:
           - relationships:
               arguments:
-              to: ref('stg_sales__stores')
-              field: store_id
+                to: ref('stg_sales__stores')
+                field: store_id
 
   - name: stg_sales__staffs
     description: "This template contains information about managers and salespeople, including the store they are assigned to."
@@ -77,8 +77,8 @@ models:
         tests:
           - relationships:
               arguments:
-              to: ref('stg_sales__staffs')
-              field: staff_id
+                to: ref('stg_sales__staffs')
+                field: staff_id
 
   - name: stg_sales__stores
     description: "This template contains information about stores."
