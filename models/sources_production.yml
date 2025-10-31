@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: production_local_bike
+    schema: production_local_bike
+    tables:
+      - name: brands
+      - name: categories
+      - name: products
+      - name: stocks
