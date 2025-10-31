@@ -35,8 +35,26 @@ clean-targets:         # directories to be removed by `dbt clean`
 # continue to be built as views. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
 
+
 models:
+  +persist_docs:
+      relation: true
+      columns: true
+
   local_bike:
-    # Applies to all files under models/example/
-    example:
-      +materialized: table
+    staging:
+      materialized: view
+      staging_sales:
+        schema: stg_sales
+      staging_production:
+        schema: stg_production
+
+    intermediate:
+      materialized: view
+      intermediate_sales: 
+        schema: int_sales
+      intermediate_production:
+        schema: int_intermediate_production
+    mart:
+      schema: mart
+      materialized: table

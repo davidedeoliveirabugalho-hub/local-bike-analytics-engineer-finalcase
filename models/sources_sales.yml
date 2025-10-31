@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: sales_local_bike
+    schema: sales_local_bike
+    tables:
+      - name: customers
+      - name: order_items
+      - name: orders
+      - name: staffs
+      - name: stores
