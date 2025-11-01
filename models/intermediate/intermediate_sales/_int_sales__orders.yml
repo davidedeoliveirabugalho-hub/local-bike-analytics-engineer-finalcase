@@ -1,0 +1,71 @@
+version: 2
+
+models:
+  - name: int_sales__orders
+    description: '{{ doc("int_sales__orders") }}'
+    columns:
+      - name: order_item_id
+        description: "Primary key, unique identifier for each order and item combination"
+        tests:
+            - unique
+            - not_null
+      - name: order_id
+        description: "Foreign key linking the order item to corresponding order."
+        tests:
+            - not_null
+            - relationships:
+                arguments:
+                  to: ref('stg_sales__orders')
+                  field: order_id
+      - name: item_id
+        description: "Foreign key linking the order item to corresponding item."
+        tests:
+            - not_null
+      - name: store_id
+        description: "Foreign key linking the order item to corresponding store."
+        tests:
+            - not_null
+            - relationships:
+                arguments:
+                  to: ref('stg_sales__stores')
+                  field: store_id        
+      - name: customer_id
+        description: "Foreign key linking the order item to corresponding customer."
+        tests:
+            - not_null
+            - relationships:
+                arguments:
+                  to: ref('stg_sales__customers')
+                  field: customer_id          
+      - name: staff_id
+        description: "Foreign key linking the order item to corresponding staff / seller."
+        tests:
+            - not_null
+            - relationships:
+                arguments:
+                  to: ref('stg_sales__staffs')
+                  field: staff_id          
+      - name: order_created_at
+        description: "This is the order creation date."
+        tests:
+            - not_null
+      - name: order_estimated_delivery_date
+        description: "This is the estimated order delivery date."
+        tests:
+            - not_null
+      - name: order_shipped_at
+        description: "This is the order shipment date."
+      - name: product_id
+        description: "Foreign key linking the order item to corresponding product."
+        tests:
+            - not_null
+            - relationships:
+                arguments:
+                  to: ref('stg_production__products')
+                  field: product_id                      
+      - name: item_gross_amount
+        description: "This is the gross amount for each row."
+      - name: item_discount_amount
+        description: "This is the discount amount for each row."
+      - name: item_net_amount
+        description: "This is the net amount for each row."
