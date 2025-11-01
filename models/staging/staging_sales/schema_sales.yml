@@ -48,8 +48,8 @@ models:
           - relationships:
               arguments:
                 to: ref('stg_sales__customers')
-                field: store_id
-      - name: customer_id
+                field: customer_id
+      - name: staff_id
         description: "Foreign key linking the order to the corresponding seller."
         tests:
           - relationships:
@@ -72,13 +72,10 @@ models:
         tests:
             - unique
             - not_null
-      - name: manager_id
+      - name: staff_manager_id
         description: "Foreign key linking the staff to his manager."
-        tests:
-          - relationships:
-              arguments:
-                to: ref('stg_sales__staffs')
-                field: staff_id
+      - name: staff_is_active
+        description: "This confirms that the staff are currently active. This column is of type Boolean."
 
   - name: stg_sales__stores
     description: "This template contains information about stores."

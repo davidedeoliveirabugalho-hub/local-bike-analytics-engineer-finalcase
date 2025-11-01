@@ -1,0 +1,34 @@
+version: 2
+
+models:
+  - name: int_sales__staffs
+    description: '{{ doc("int_sales__staffs") }}'
+    columns:
+      - name: staff_id
+        description: "Primary key, unique identifier for each staff"
+        tests:
+            - unique
+            - not_null
+      - name: staff_first_name
+        description: "staff first name"
+      - name: staff_last_name
+        description: "staff last name"
+      - name: staff_is_active
+        description: "confirms that the staff are currently active: False = inactive, True = active."
+      - name: store_id
+        description: "Foreign key linking staff to their assigned store."
+        tests:
+          - relationships:
+              arguments:
+                to: ref('stg_sales__stores')
+                field: store_id
+      - name: staff_manager_id
+        description: "Foreign key linking the staff to his manager."
+      - name: staff_role
+        description: "Provides information on the role within the company: general manager, store manager, and seller."
+      - name: is_salesperson
+        description: "It informs us if the person has already had orders, regardless of roles."
+      - name: staff_total_orders
+        description: "Gives the total number of orders per staff member."
+        tests:
+          - not_null
