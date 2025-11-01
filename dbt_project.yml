@@ -54,7 +54,7 @@ models:
       intermediate_sales: 
         schema: int_sales
       intermediate_production:
-        schema: int_intermediate_production
+        schema: int_production
     mart:
       schema: mart
       materialized: table
