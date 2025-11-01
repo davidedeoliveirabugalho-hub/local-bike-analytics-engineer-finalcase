@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: int_production__products
+    description: '{{ doc("int_production__products") }}'
+    columns:
+      - name: product_id
+        description: "Primary key, unique identifier for each product"
+        tests:
+            - unique
+            - not_null
+      - name: product_name
+        description: "Name of product."
+        tests:
+          - not_null
+      - name: product_model_year
+        description: "Model year of product."  
+      - name: product_list_price
+        description: "List price of product."
+        tests:
+          - not_null
+      - name: product_category_name
+        description: "Product category name"
+      - name: product_brand_name
+        description: "Product brand name"
