@@ -9,19 +9,19 @@ with calculation_of_amounts as (
 )
 
 select
-    oi.order_item_id,
-    o.order_id,
-    oi.item_id,
-    o.store_id,
-    o.customer_id,
-    o.staff_id,
-    o.order_created_at,
-    o.order_estimated_delivery_date,
-    o.order_shipped_at,
-    oi.product_id,
-    ca.item_gross_amount,
-    ca.item_discount_amount,
-    ca.item_net_amount
+    oi.order_item_id as order_item_id,
+    o.order_id as order_id,
+    oi.item_id as item_id,
+    o.store_id as store_id,
+    o.customer_id as customer_id,
+    o.staff_id as staff_id,
+    o.order_created_at as order_created_at,
+    o.order_estimated_delivery_date as order_estimated_delivery_date,
+    o.order_shipped_at as order_shipped_at,
+    oi.product_id as product_id,
+    ca.item_gross_amount as item_gross_amount,
+    ca.item_discount_amount as item_discount_amount,
+    ca.item_net_amount as item_net_amount
 from {{ ref('stg_sales__orders') }} as o
 inner join {{ ref('stg_sales__order_items') }} as oi
     on o.order_id = oi.order_id
