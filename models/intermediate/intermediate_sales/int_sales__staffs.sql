@@ -45,15 +45,15 @@ salespersons_list as (
 )
 
 select
-    s.staff_id,
-    s.staff_first_name,
-    s.staff_last_name,
-    s.staff_is_active,
-    s.store_id,
-    s.staff_manager_id,
-    hr.staff_role,
-    sp.is_salesperson,
-    sp.staff_total_orders
+    s.staff_id as staff_id,
+    s.staff_first_name as staff_first_name,
+    s.staff_last_name as staff_last_name,
+    s.staff_is_active as staff_is_active,
+    s.store_id as store_id,
+    s.staff_manager_id as staff_manager_id,
+    hr.staff_role as staff_role,
+    sp.is_salesperson as is_salesperson,
+    sp.staff_total_orders as staff_total_orders
 from {{ ref('stg_sales__staffs') }} as s
     left join hierarchical_role as hr
         on s.staff_id = hr.staff_id
