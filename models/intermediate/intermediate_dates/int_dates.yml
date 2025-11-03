@@ -1,0 +1,51 @@
+version: 2
+
+models:
+  - name: int_dates
+    description: '{{ doc("int_dates") }}'
+    columns:
+      - name: calendar_date
+        description: "Primary key, unique identifier for each calendar date."
+        tests:
+            - unique
+            - not_null
+      - name: calendar_year
+        description: "only the year extracted from the full date."
+        tests:
+            - not_null
+      - name: calendar_month
+        description: "only the month of year extracted from the full date."
+        tests:
+            - not_null
+            - dbt_expectations.expect_column_values_to_be_between: 
+                min_value: 1 
+                max_value: 12 
+                strictly: false
+      - name: calendar_day
+        description: "only the day of month extracted from the full date."
+        tests:
+            - not_null
+            - dbt_expectations.expect_column_values_to_be_between: 
+                min_value: 1 
+                max_value: 31 
+                strictly: false
+      - name: calendar_week_number
+        description: "the week number of the year 1 to 52."
+        tests:
+            - not_null
+            - dbt_expectations.expect_column_values_to_be_between: 
+                min_value: 0 
+                max_value: 53 
+                strictly: false
+      - name: calendar_day_of_week
+        description: "the day number of the week 1 = sunday to 7 = saturday."
+        tests:
+            - not_null
+            - dbt_expectations.expect_column_values_to_be_between: 
+                min_value: 1 
+                max_value: 7 
+                strictly: false
+      - name: is_weekend
+        description: "Inform if it's a weekend day."
+        tests:
+            - not_null
