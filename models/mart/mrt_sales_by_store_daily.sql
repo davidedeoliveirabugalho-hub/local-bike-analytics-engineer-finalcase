@@ -26,7 +26,7 @@ select
     d.calendar_week_number as calendar_week_number,
     d.calendar_day as calendar_day,
     d.calendar_day_of_week as calendar_day_of_week,
-    d.is_weekend as is_weekend,
+    d.is_weekend as is_weekend
 from {{ ref('int_dates') }} d
 cross join {{ ref('stg_sales__stores') }} s
 left join totals_per_order_per_store ops

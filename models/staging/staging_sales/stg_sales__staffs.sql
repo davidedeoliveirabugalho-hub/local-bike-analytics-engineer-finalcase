@@ -5,6 +5,6 @@ select
     cast(email as string) as staff_email,
     cast(phone as string) as staff_phone,
     cast(active as boolean) as staff_is_active,
-    cast(store_id as integer) as store_id,
-    cast(manager_id as integer) as staff_manager_id
+    coalesce(safe_cast(manager_id as integer), 0) as staff_manager_id,
+    coalesce(safe_cast(store_id as integer), 0) as store_id
 from {{ source('sales_local_bike', 'staffs') }}

@@ -1,0 +1,60 @@
+version: 2
+
+models:
+  - name: mrt_sales_by_seller_daily
+    description: '{{ doc("mrt_sales_by_seller_daily") }}'
+    columns:
+      - name: staff_id
+        description: "Unique identifier for each seller/staff member."
+        tests:
+          - not_null
+      - name: staff_first_name
+        description: "First name of the seller."
+      - name: staff_last_name
+        description: "Last name of the seller."
+      - name: staff_is_active
+        description: "Flag indicating if the seller is active."
+        tests:
+          - not_null
+      - name: store_id
+        description: "Store where the seller works."
+        tests:
+          - not_null
+      - name: staff_manager_id
+        description: "Manager ID (0 if no manager)."
+        tests:
+          - not_null
+      - name: staff_role
+        description: "Role of the staff member."
+        tests:
+          - not_null
+      - name: is_salesperson
+        description: "Flag indicating if the staff is a salesperson."
+        tests:
+          - not_null
+      - name: calendar_date
+        description: "Sale date."
+        tests:
+          - not_null
+      - name: seller_daily_total_orders
+        description: "Total daily orders for this seller."
+      - name: seller_daily_total_customers
+        description: "Total unique customers for this seller per day."
+      - name: seller_daily_avg_distinct_items
+        description: "Average items per order for this seller per day."
+      - name: seller_daily_revenue
+        description: "Daily revenue for this seller."
+      - name: seller_daily_avg_basket
+        description: "Average basket size for this seller per day."
+      - name: calendar_year
+        description: "Year from the sale date."
+      - name: calendar_month
+        description: "Month from the sale date."
+      - name: calendar_week_number
+        description: "Week number from the sale date."
+      - name: calendar_day
+        description: "Day of month from the sale date."
+      - name: calendar_day_of_week
+        description: "Day of week from the sale date."
+      - name: is_weekend
+        description: "Flag indicating if the date is a weekend."
