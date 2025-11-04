@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: mrt_sales_by_product_daily
+    description: '{{ doc("mrt_sales_by_product_daily") }}'
+    columns:
+      - name: product_id
+        description: "Unique identifier for each product."
+        tests:
+            - not_null
+      - name: product_name
+        description: "Common name for the product."
+        tests:
+            - not_null
+      - name: product_model_year
+        description: "Model year."
+        tests:
+            - not_null
+      - name: product_list_price
+        description: "Product list price."
+        tests:
+            - not_null
+      - name: product_category_name
+        description: "Product category name."
+        tests:
+            - not_null   
+      - name: product_brand_name
+        description: "Product_brand_name."
+        tests:
+            - not_null
+      - name: product_order_date
+        description: "Product sale date." 
+      - name: product_daily_total_orders
+        description: "Daily orders per product."
+      - name: product_daily_total_customers
+        description: "Daily customers who purchased the product."
+      - name: product_daily_total_quantity
+        description: "Daily sales quantity product."
+      - name: product_daily_revenue
+        description: "Daily revenue per product."    

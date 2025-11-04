@@ -12,6 +12,7 @@ select
     oi.order_item_id as order_item_id,
     o.order_id as order_id,
     oi.item_id as item_id,
+    oi.item_quantity as item_quantity,
     o.store_id as store_id,
     o.customer_id as customer_id,
     o.staff_id as staff_id,
