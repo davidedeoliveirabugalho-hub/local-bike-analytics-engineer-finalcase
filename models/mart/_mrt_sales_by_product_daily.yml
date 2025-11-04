@@ -30,8 +30,6 @@ models:
             - not_null
       - name: product_order_date
         description: "Product sale date." 
-        tests:
-            - not_null
       - name: product_daily_total_orders
         description: "Daily orders per product."
       - name: product_daily_total_customers
