@@ -8,9 +8,9 @@ with date_range as(
         date_range_unnest
     from unnest(GENERATE_DATE_ARRAY (
                 (select min(order_created_at) 
-                    from {{ ref('int_sales__orders') }}), 
+                    from {{ ref('stg_sales__orders') }}), 
                 (select max(order_created_at) 
-                    from {{ ref('int_sales__orders') }})
+                    from {{ ref('stg_sales__orders') }})
                                         )
                     ) as date_range_unnest
 )
