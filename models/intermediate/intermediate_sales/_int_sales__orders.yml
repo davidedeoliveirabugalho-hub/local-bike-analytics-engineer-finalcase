@@ -21,6 +21,10 @@ models:
         description: "Foreign key linking the order item to corresponding item."
         tests:
             - not_null
+      - name: item_quantity
+        description: "Quantity of item ordered."
+        tests:
+            - not_null
       - name: store_id
         description: "Foreign key linking the order item to corresponding store."
         tests:
