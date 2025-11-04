@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: mrt_products_stocks_vs_sales_monthly
+    description: '{{ doc("mrt_products_stocks_vs_sales_monthly") }}'
+    columns:
+      - name: product_id
+        description: "Unique identifier for the product."
+        tests:
+          - not_null
+      - name: store_id
+        description: "Unique identifier for the store."
+        tests:
+          - not_null
+      - name: product_name
+        description: "Product name."
+      - name: product_category_name
+        description: "Product category."
+      - name: product_brand_name
+        description: "Product brand."
+      - name: stock_quantity
+        description: "Current stock quantity on hand."
+        tests:
+          - not_null
+      - name: avg_monthly_qty
+        description: "Average monthly quantity sold."
+      - name: avg_monthly_revenue
+        description: "Average monthly revenue."
+      - name: nb_months_sold
+        description: "Number of months with sales data."
+      - name: day_of_coverage
+        description: "Days of inventory coverage (stock / daily sales)."
+      - name: rotation_ratio
+        description: "Stock rotation ratio (monthly sales / stock)."
+      - name: stock_status
+        description: "Stock status (overstock, understock, rupture, normal)."
+        
