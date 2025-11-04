@@ -73,7 +73,7 @@ models:
             - unique
             - not_null
       - name: staff_manager_id
-        description: "Foreign key linking the staff to his manager."
+        description: "Foreign key linking the staff to his manager, 0 value for not managed."
       - name: staff_is_active
         description: "This confirms that the staff are currently active. This column is of type Boolean."
 
