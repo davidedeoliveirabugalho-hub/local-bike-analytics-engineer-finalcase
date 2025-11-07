@@ -17,10 +17,10 @@ with date_range as(
 
 select
     date_range_unnest as calendar_date,
-    extract(year from date_range_unnest) as calendar_year,
-    extract(month from date_range_unnest) as calendar_month,
-    extract(day from date_range_unnest) as calendar_day,
-    extract(week from date_range_unnest) as calendar_week_number,
+    date_trunc(date_range_unnest, year) as calendar_year,
+    date_trunc(date_range_unnest, month) as calendar_month,
+    date_trunc(date_range_unnest, day) as calendar_day,
+    date_trunc(date_range_unnest, week) as calendar_week_number,
     extract(dayofweek from date_range_unnest) as calendar_day_of_week,
     case when extract(dayofweek from date_range_unnest) in (1, 7) then true
         else false
