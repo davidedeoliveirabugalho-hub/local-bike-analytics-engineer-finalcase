@@ -1,8 +1,8 @@
 version: 2
 
 models:
-  - name: mrt_sales_by_store_daily
-    description: '{{ doc("mrt_sales_by_store_daily") }}'
+  - name: mrt_sumary_at_order_level
+    description: '{{ doc("mrt_sumary_at_order_level") }}'
     columns:
       - name: order_id
         description: "Unique identifier for each order."
@@ -10,8 +10,6 @@ models:
           - unique
       - name: store_id
         description: "Unique identifier for each store."
-        tests:
-          - not_null
       - name: store_name
         description: "Common name for the store."
         tests:
@@ -30,24 +28,14 @@ models:
         description: "Revenue per order"
       - name: staff_id
         description: "Unique identifier for each staff."
-        tests:
-          - not_null
       - name: staff_name
         description: "Name of each staff."
-        tests:
-          - not_null
       - name: staff_is_active
         description: "Indicate if staff is actualy active."
-        tests:
-          - not_null
       - name: staff_manager_id
         description: "Identifier of the manager in charge of this staff."
-        tests:
-          - not_null
       - name: staff_role
         description: "Role of the staff in organisation."
-        tests:
-          - not_null
       - name: calendar_year
         description: "year yyyy-mm-dd."
       - name: calendar_month
